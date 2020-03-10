@@ -1,0 +1,24 @@
+async function startProgram() {
+  setHeading(0) //sets heading  or direction
+  setMainLed(getRandomColor())//Sets random colors on the LED screen
+  await delay(0.5) //delays
+  setSpeed(60)  //sets speed
+  await matrixAnimation(); //starts matrix animation
+  while (true) //forever while loop
+  {
+    await spin(360, 5) //spins half of the 8
+    await spin(-360, 5)  //spins other half of the 8
+    setMainLed(getRandomColor()) //sets random color on the LED screen
+  }
+}
+async function matrixAnimation() { //makes function for animation
+  playMatrixAnimation(0, true);  //plays animation
+}
+
+registerMatrixAnimation({ //defines animation
+  frames: [[[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 2, 2, 1, 1, 1], [1, 1, 1, 2, 2, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]], [[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 2, 2, 2, 2, 1, 1], [1, 1, 2, 1, 1, 2, 1, 1], [1, 1, 2, 1, 1, 2, 1, 1], [1, 1, 2, 2, 2, 2, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]], [[1, 1, 1, 1, 1, 1, 1, 1], [1, 2, 2, 2, 2, 2, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 2, 2, 2, 2, 2, 1], [1, 1, 1, 1, 1, 1, 1, 1]], [[2, 2, 2, 2, 2, 2, 2, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 1, 1, 1, 1, 1, 1, 2], [2, 2, 2, 2, 2, 2, 2, 2]], [[1, 1, 1, 1, 1, 1, 1, 1], [1, 2, 2, 2, 2, 2, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 1, 1, 1, 1, 2, 1], [1, 2, 2, 2, 2, 2, 2, 1], [1, 1, 1, 1, 1, 1, 1, 1]], [[1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 2, 2, 2, 2, 1, 1], [1, 1, 2, 1, 1, 2, 1, 1], [1, 1, 2, 1, 1, 2, 1, 1], [1, 1, 2, 2, 2, 2, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]]],
+  palette: [{ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, { r: 255, g: 0, b: 0 }, { r: 255, g: 64, b: 0 }, { r: 255, g: 128, b: 0 }, { r: 255, g: 191, b: 0 }, { r: 255, g: 255, b: 0 }, { r: 185, g: 246, b: 30 }, { r: 0, g: 255, b: 0 }, { r: 185, g: 255, b: 255 }, { r: 0, g: 255, b: 255 }, { r: 0, g: 0, b: 255 }, { r: 145, g: 0, b: 211 }, { r: 157, g: 48, b: 118 }, { r: 255, g: 0, b: 255 }, { r: 204, g: 27, b: 126 }],
+  fps: 10,
+  transition: MatrixAnimationTransition.None
+});
+
