@@ -1,0 +1,32 @@
+/*
+Programmers: Carsyn L. & Jordyn K.
+Date: 3.11.20
+Program: Spins in circle, after rotation changes to a random color.
+*/
+
+/**
+ *Changes light color
+*/ 
+async function spinCircle() {
+	setSpeed(40) // sets 40 speed
+	await spin(360, 5) // spins 360 degrees for five seconds 
+	setSpeed(0) // when you set it to 0 it makes it so it doesnt move more than 360 degrees 
+}
+
+/**
+ *Changes light color
+*/ 
+async function lightColor() { 
+	setMainLed(getRandomColor()) //change color
+}
+
+/**
+ *Calls functions and starts program
+*/ 
+async function startProgram() {
+	while (true) {	         //Loops the two functions
+		await lightColor();  //calls lightColor function
+		await spinCircle();  //calls spinCircle function
+	}
+		
+}
